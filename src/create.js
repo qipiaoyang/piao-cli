@@ -18,7 +18,7 @@ function info(type, message) {
     console.error(chalk.green(message));
   }
   
-  function init({ssr, spa, vue, gulp, install, args}) {
+  function create({ssr, spa, vue, gulp, install, args}) {
     console.log(33333);
     let type = '';
     if(ssr) {
@@ -92,5 +92,5 @@ function info(type, message) {
     });
   }
   
-  export default init;
+  export default create;
   
