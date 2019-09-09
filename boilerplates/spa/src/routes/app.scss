@@ -1,0 +1,113 @@
+@import "../theme-color.scss";
+
+.app {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: $backgroundColor;
+    a {
+        color: #ffffff;
+        font-size: 14px;
+    }
+    .container {
+        display: flex;
+        background: $backgroundColor;
+    }
+    .container_left {
+        flex: 1;
+    }
+    .container_center {
+        width: 1200px;
+        background: $backgroundColor;
+    }
+    .container_right {
+        flex: 1;
+    }
+    .breadcrumb {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .container_center_ctn {
+        display: flex;
+    }
+    .container_center_left {
+        flex: 1;
+        flex-basis: auto;
+        margin-right: 16px;
+        margin-bottom: 30px;
+    }
+    .container_center_right {
+        flex: 940;
+        width: 969px;
+        height: 100%;
+        background: $backgroundColor;
+        .xb-container {
+          padding: 24px;
+          box-sizing: border-box;
+          background: $mainBackgroundColor;
+        }
+    }
+
+
+    .breadcrumb-div {
+        font-size: 14px;
+        .breadcrumb-pingtai {
+            color: #7FA2B8;
+            &:hover {
+                color: #d1e3ef;
+            }
+        }
+        .breadcrumb-list {
+            a {
+                color: #7FA2B8;
+            }
+            .ant-breadcrumb-separator {
+                color: #7FA2B8;
+            }
+        }
+        .breadcrumb-high {
+            margin: 0 8px;
+            color: #7FA2B8;
+        }
+        .ant-breadcrumb-link:hover{
+            color: #d1e3ef;
+        }
+    }
+}
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #F5F5F5;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(153, 153, 153, 0.3);
+    border-radius: 3px;
+    background-color: #F5F5F5;
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    -webkit-box-shadow: inset 0 0 6px rgba(153, 153, 153, .3);
+    background-color: #C9C9C9;
+}
+
+.ant-table-row.ant-table-row-level-1 {
+  .ant-table-row-expand-icon-cell {
+    opacity: 0;
+  }
+  .continueQuote {
+    display: none;
+  }
+}
