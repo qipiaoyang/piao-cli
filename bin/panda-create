@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+
+program
+  .option('ssr', '生成一个服务端渲染ssr demo')
+  .option('spa', '生成一个单页应用spa demo')
+  .option('vue', '生成一个单页应用vue demo')
+  .option('gulp', '生成一个gulp项目')
+  .option('--no-install', '安装完模板之后不直接安装依赖，默认是安装的, default: true ')
+  .parse(process.argv);
+
+require('../lib/create').default(program);
