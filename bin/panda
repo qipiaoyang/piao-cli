@@ -1,0 +1,81 @@
+#!/usr/bin/env node
+'use strict';
+
+const chalk = require('chalk');// 控制台的样式
+const program = require('commander');//引入commander命令
+const spawn = require('win-spawn');
+const join = require('path').join;
+const resolve = require('path').resolve;
+const exists = require('fs').existsSync;
+const readFileSync = require('fs').readFileSync;
+const pkg = require('../package.json');//引入package.json里的文件
+
+
+const updater = require('update-notifier');
+updater({ pkg: pkg }).notify({ defer: true });
+
+if (process.argv.slice(2).join('') === '-v') {
+    const pkg = require('../package');
+    console.log('panda-cli version ' + pkg.version);
+    try {
+      const pandaPkg = resolve('node_modules/panda-cli/package.json');
+        const pandaVersion = JSON.parse(readFileSync(pandaPkg, 'utf-8')).version;
+      console.log('    panda-cli version ' + pandaVersion);
+    } catch (e) {
+    }
+    if (!(pkg._from && pkg._resolved)) {
+        console.log(chalk.cyan('@local'));
+    }
+    return;
+}
+
+program
+    .usage('[options] apandaName')
+    .on('--help', printHelp)
+    .parse(process.argv);
+
+const aliases = {
+    g: 'generate',
+};
+
+const args = process.argv.slice(3);
+let subcmd = program.args[0];
+if (aliases[subcmd]) subcmd = aliases[subcmd];
+
+if (!subcmd) {
+    program.help();
+  } else {
+    const bin = executable(subcmd);
+    if (bin) {
+      console.log(bin);
+      wrap(spawn(bin, args, {stdio: 'inherit', customFds: [0, 1, 2]}));
+    } else {
+      program.help();
+    }
+  }
+
+  function wrap(sp) {
+    sp.on('close', function(code) {
+      process.exit(code);
+    });
+  }
+  
+  function printHelp() {
+    console.log('  Commands:');
+    console.log();
+    console.log('    init                     默认初始化一个 react spa项目');
+    console.log('    init ssr [projectName]   默认初始化一个 react ssr项目');
+    console.log('    init spa [projectName]   默认初始化一个 react spa项目');
+    console.log('    init vue [projectName]   默认初始化一个 vue项目');
+    console.log('    init gulp [projectName]   默认初始化一个 gulp项目');
+    console.log();
+    console.log('  All commands can be run with -h (or --help) for more information.')
+  }
+  
+  function executable(subcmd) {
+    var file = join(__dirname, 'panda-' + subcmd);
+    if (exists(file)) {
+      return file;
+    }
+  }
+  

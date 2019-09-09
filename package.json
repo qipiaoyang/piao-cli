@@ -1,0 +1,55 @@
+{
+  "name": "piao-cli",
+  "version": "1.0.1",
+  "description": "虚贝脚手架工具",
+  "main": "index.js",
+  "bin": {
+    "panda": "./bin/panda"
+  },
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
+    "empty-dir": "^2.0.0",
+    "left-pad": "^1.3.0",
+    "through2": "^3.0.0",
+    "update-notifier": "^2.5.0",
+    "vinyl-fs": "^3.0.3",
+    "which": "^1.3.1",
+    "win-spawn": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qipiaoyang/pp-cli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qipiaoyang/pp-cli/issues"
+  },
+  "homepage": "https://github.com/qipiaoyang/pp-cli#readme"
+}
